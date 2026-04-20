@@ -1,0 +1,14 @@
+# Dependencias (pesan mucho y no se suben)
+node_modules/
+
+# Variables de entorno (¡ESTO ES LO MÁS IMPORTANTE!)
+.env
+
+# Logs de errores
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Configuración de sistema
+.DS_Store
+Thumbs.db

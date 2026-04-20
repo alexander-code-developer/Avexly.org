@@ -1,0 +1,188 @@
+{
+  "skills": [
+    {
+      "id": "next",
+      "name": "Next.js / React",
+      "status": "Production Ready",
+      "level": "Expert",
+      "tech": "Fullstack SSR",
+      "brandColor": "#FFFFFF",
+      "glowColor": "rgba(255, 255, 255, 0.15)",
+      "url": "https://nextjs.org",
+      "specialAction": "Vercel Edge",
+      "iconType": "SiNextdotjs",
+      "gallery": [
+        "../../public/skills/react1.webp",
+        "../../public/skills/react2.webp"
+      ]
+    },
+    {
+      "id": "node",
+      "name": "Node.js",
+      "status": "Stable Kernel",
+      "level": "Advanced",
+      "tech": "Backend Arch",
+      "brandColor": "#68A063",
+      "glowColor": "rgba(104, 160, 99, 0.15)",
+      "url": "https://nodejs.org",
+      "specialAction": "Event Loop",
+      "iconType": "FaNodeJs",
+      "gallery": [
+        "../../public/skills/node1.webp",
+        "../../public/skills/node2.webp"
+      ]
+    },
+    {
+      "id": "ts",
+      "name": "TypeScript",
+      "status": "Type Safe",
+      "level": "Expert",
+      "tech": "Enterprise Logic",
+      "brandColor": "#3178C6",
+      "glowColor": "rgba(49, 120, 198, 0.15)",
+      "url": "https://typescriptlang.org",
+      "specialAction": "Strict Mode",
+      "iconType": "SiTypescript",
+      "gallery": [
+        "../../public/skills/ts1.webp",
+        "../../public/skills/ts2.webp"
+      ]
+    },
+    {
+      "id": "mongodb",
+      "name": "MongoDB",
+      "status": "Optimized",
+      "level": "Intermediate",
+      "tech": "NoSQL DB",
+      "brandColor": "#47A248",
+      "glowColor": "rgba(71, 162, 72, 0.15)",
+      "url": "https://mongodb.com",
+      "specialAction": "Cluster Ops",
+      "iconType": "SiMongodb",
+      "gallery": [
+        "../../public/skills/mongo.webp",
+        "../../public/skills/mongo2.webp"
+      ]
+    },
+    {
+      "id": "python",
+      "name": "Python / IA",
+      "status": "Neural Engine",
+      "level": "Intermediate",
+      "tech": "Artificial Intelligence",
+      "brandColor": "#FFD43B",
+      "glowColor": "rgba(255, 212, 59, 0.15)",
+      "url": "https://python.org",
+      "specialAction": "Training Model",
+      "iconType": "SiPython",
+      "gallery": [
+        "../../public/skills/py.webp"
+      ]
+    },
+    {
+      "id": "sql",
+      "name": "MySQL / Postgres",
+      "status": "Data Integrity",
+      "level": "Advanced",
+      "tech": "Relational Systems",
+      "brandColor": "#336791",
+      "glowColor": "rgba(51, 103, 145, 0.15)",
+      "url": "https://www.postgresql.org",
+      "specialAction": "ACID Compliance",
+      "iconType": "SiPostgresql",
+      "gallery": [
+        "../../public/skills/poss1.webp"
+      ]
+    },
+    {
+      "id": "mobile",
+      "name": "Mobile Dev",
+      "status": "Native App",
+      "level": "Intermediate",
+      "tech": "Android / Unity",
+      "brandColor": "#3DDC84",
+      "glowColor": "rgba(61, 220, 132, 0.15)",
+      "url": "https://developer.android.com",
+      "specialAction": "Cross-Platform",
+      "iconType": "SiAndroidstudio",
+      "gallery": [
+        "../../public/skills/mobile1.webp"
+      ]
+    },
+    {
+      "id": "laravel",
+      "name": "Laravel",
+      "status": "MVC Scalable",
+      "level": "Expert",
+      "tech": "PHP Backend",
+      "brandColor": "#FF2D20",
+      "glowColor": "rgba(255, 45, 32, 0.15)",
+      "url": "https://laravel.com",
+      "specialAction": "Artisan Core",
+      "iconType": "SiLaravel",
+      "gallery": [
+        "../../public/skills/lara1.webp"
+      ]
+    },
+    {
+      "id": "tailwind",
+      "name": "Tailwind CSS",
+      "status": "Atomic UI",
+      "level": "Expert",
+      "tech": "Design Systems",
+      "brandColor": "#06B6D4",
+      "glowColor": "rgba(6, 182, 212, 0.15)",
+      "url": "https://tailwindcss.com",
+      "specialAction": "JIT Compiler",
+      "iconType": "SiTailwindcss",
+      "gallery": [
+        "../../public/skills/tail1.webp"
+      ]
+    },
+    {
+      "id": "docker",
+      "name": "Docker / Containers",
+      "status": "Isolated Env",
+      "level": "Advanced",
+      "tech": "Infrastructure",
+      "brandColor": "#2496ED",
+      "glowColor": "rgba(36, 150, 237, 0.15)",
+      "url": "https://www.docker.com",
+      "specialAction": "Compose Up",
+      "iconType": "SiDocker",
+      "gallery": [
+        "../../public/skills/docker1.webp"
+      ]
+    },
+    {
+      "id": "figma",
+      "name": "Figma / Design",
+      "status": "Pixel Perfect",
+      "level": "Advanced",
+      "tech": "Prototyping",
+      "brandColor": "#F24E1E",
+      "glowColor": "rgba(242, 78, 30, 0.15)",
+      "url": "https://www.figma.com",
+      "specialAction": "Dev Mode",
+      "iconType": "SiFigma",
+      "gallery": [
+        "../../public/skills/figma1.webp"
+      ]
+    },
+    {
+      "id": "git",
+      "name": "Git / GitHub",
+      "status": "Version Control",
+      "level": "Expert",
+      "tech": "Collaboration",
+      "brandColor": "#F05032",
+      "glowColor": "rgba(240, 80, 50, 0.15)",
+      "url": "https://github.com",
+      "specialAction": "Branch Merge",
+      "iconType": "SiGithub",
+      "gallery": [
+        "../../public/skills/git1.webp"
+      ]
+    }
+  ]
+}

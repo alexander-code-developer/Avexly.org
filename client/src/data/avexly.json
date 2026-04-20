@@ -1,0 +1,38 @@
+{
+  "brand": {
+    "name": "Avexly",
+    "slogan": "High-Impact Digital Solutions",
+    "legalName": "Jesus Alexander Martinez Rivera",
+    "entityType": "Sociedad por Acciones Simplificada (SAS)",
+    "location": {
+      "city": "México",
+      "timezone": "GMT-6"
+    }
+  },
+  "hero": {
+    "title_part1": "Jesus",
+    "title_part2": "Alexander",
+    "typing_phrases": [
+      "Full Stack Web Developer",
+      "AI Solutions Architect",
+      "Systems Engineer",
+      "MERN Stack Specialist",
+      "Biometric Systems Expert"
+    ],
+    "mission": "Systems Engineer specializing in MERN Stack. Designing high-performance architectures and scalable digital experiences for the modern web."
+  },
+  "contact": {
+    "email": "alexander.code.developer@gmail.com",
+    "phone": {
+      "display": "+52 773 200 3120",
+      "link": "+527732003120"
+    },
+    "website": "https://avexly.org"
+  },
+  "socials": {
+    "github": "https://github.com/alexander-code-developer",
+    "linkedin": "https://linkedin.com/in/jesus-alexander-martinez-rivera-avexly",
+    "youtube": "https://www.youtube.com/@AlexCode29",
+    "whatsapp": "https://wa.me/527732003120?text=Hola%20me%20interesa%20tus%20servicios"
+  }
+}

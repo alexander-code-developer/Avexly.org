@@ -1,0 +1,28 @@
+{
+  "stats": [
+    {
+      "id": "deployment",
+      "value": "20+",
+      "label": "Sistemas Desplegados",
+      "detail": "Full Stack & AI",
+      "icon": "LuRocket",
+      "colorID": "blue"
+    },
+    {
+      "id": "partners",
+      "value": "15+",
+      "label": "Socios Estratégicos",
+      "detail": "Confianza Total",
+      "icon": "LuAward",
+      "colorID": "emerald"
+    },
+    {
+      "id": "uptime",
+      "value": "24/7",
+      "label": "Uptime Operativo",
+      "detail": "Soporte Continuo",
+      "icon": "LuSparkles",
+      "colorID": "purple"
+    }
+  ]
+}
