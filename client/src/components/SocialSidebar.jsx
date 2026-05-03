@@ -3,6 +3,7 @@ import { SiGmail } from "react-icons/si";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaShareAlt, FaYoutube } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import avexly from "../data/avexly.json";
+import { useModal } from '../context/ModalContext'; 
 
 const socialLinks = [
   { href: avexly.socials.github, icon: FaGithub, color: "text-white", glow: "shadow-white/20", label: "GitHub" },
@@ -14,12 +15,11 @@ const socialLinks = [
 
 const SocialSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAnyModalOpen } = useModal(); 
+  if (isAnyModalOpen) return null;
 
   return (
-   
     <div className="fixed top-12 left-6 z-[20] flex flex-col items-center gap-4">
-      
-      
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`
@@ -42,6 +42,7 @@ const SocialSidebar = () => {
           </span>
         )}
       </button>
+      
       <div className={`
         flex flex-col gap-3 transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]
         ${isOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-10 scale-50 pointer-events-none'}
@@ -75,6 +76,7 @@ const SocialSidebar = () => {
           </a>
         ))}
       </div>
+      
       <div className={`
         w-px bg-gradient-to-b from-blue-500 to-transparent transition-all duration-700
         ${isOpen ? 'h-20 opacity-30' : 'h-0 opacity-0'}

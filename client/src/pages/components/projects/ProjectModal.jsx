@@ -10,21 +10,26 @@ import { FeatureItem } from '../../../components/ui/FeatureItem';
 import { CodeBlock } from '../../../components/ui/CodeBlock';
 import { ImageSlider } from '../../../components/ui/ImageSlider';
 import { getTechIconOnly } from '../../../utils/icons';
+import { useModal } from '../../../context/ModalContext';
 
 const ProjectModal = ({ project, isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState('overview');
+  const { setIsAnyModalOpen } = useModal();
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      setIsAnyModalOpen(true); // Notifica que el modal está abierto
     } else {
       document.body.style.overflow = 'unset';
+      setIsAnyModalOpen(false); // Notifica que el modal está cerrado
     }
 
     return () => {
       document.body.style.overflow = 'unset';
+      setIsAnyModalOpen(false);
     };
-  }, [isOpen]);
+  }, [isOpen, setIsAnyModalOpen]);
 
   const images = project?.images || (project?.image ? [project.image] : []);
 
@@ -40,7 +45,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
             className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm"
           />
           
-          <div className="fixed inset-0 z-[10000] overflow-y-auto flex justify-center">
+          <div className="fixed inset-0 z-[50001] overflow-y-auto flex justify-center">
             <motion.div 
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
