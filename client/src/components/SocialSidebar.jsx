@@ -7,8 +7,8 @@ import avexly from "../data/avexly.json";
 const socialLinks = [
   { href: avexly.socials.github, icon: FaGithub, color: "text-white", glow: "shadow-white/20", label: "GitHub" },
   { href: avexly.socials.linkedin, icon: FaLinkedin, color: "text-blue-400", glow: "shadow-blue-500/20", label: "LinkedIn" },
-  { href: avexly.socials.email, icon: SiGmail, color: "text-red-500", glow: "shadow-red-500/20", label: "Email" },
-  { href: avexly.socials.whats, icon: FaWhatsapp, color: "text-emerald-500", glow: "shadow-emerald-500/20", label: "WhatsApp" },
+  { href: `mailto:${avexly.contact.email}`, icon: SiGmail, color: "text-red-500", glow: "shadow-red-500/20", label: "Email" },
+  { href: avexly.socials.whatsapp, icon: FaWhatsapp, color: "text-emerald-500", glow: "shadow-emerald-500/20", label: "WhatsApp" },
   { href: avexly.socials.youtube, icon: FaYoutube, color: "text-red-500", glow: "shadow-red-500/20", label: "Youtube" },
 ];
 
