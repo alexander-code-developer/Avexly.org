@@ -170,11 +170,11 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                 {activeTab === 'challenge' && (
                   <div className="space-y-4">
                     <div className="p-6 bg-amber-500/5 border border-amber-500/20 rounded-xl">
-                      <h3 className="text-lg font-semibold text-amber-400 mb-2">🧩 El Reto</h3>
+                      <h3 className="text-lg font-semibold text-amber-400 mb-2">The Challenge</h3>
                       <p className="text-slate-300">{project.challenge}</p>
                     </div>
                     <div className="p-6 bg-emerald-500/5 border border-emerald-500/20 rounded-xl">
-                      <h3 className="text-lg font-semibold text-emerald-400 mb-2">⚡ La Solución</h3>
+                      <h3 className="text-lg font-semibold text-emerald-400 mb-2">The Solution</h3>
                       <p className="text-slate-300">{project.solution}</p>
                     </div>
                   </div>
