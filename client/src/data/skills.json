@@ -12,8 +12,8 @@
       "specialAction": "Vercel Edge",
       "iconType": "SiNextdotjs",
       "gallery": [
-        "../../public/skills/react1.webp",
-        "../../public/skills/react2.webp"
+        "/skills/react1.webp",
+        "/skills/react2.webp"
       ]
     },
     {
@@ -28,8 +28,8 @@
       "specialAction": "Event Loop",
       "iconType": "FaNodeJs",
       "gallery": [
-        "../../public/skills/node1.webp",
-        "../../public/skills/node2.webp"
+        "/skills/node1.webp",
+        "/skills/node2.webp"
       ]
     },
     {
@@ -44,8 +44,8 @@
       "specialAction": "Strict Mode",
       "iconType": "SiTypescript",
       "gallery": [
-        "../../public/skills/ts1.webp",
-        "../../public/skills/ts2.webp"
+        "/skills/ts1.webp",
+        "/skills/ts2.webp"
       ]
     },
     {
@@ -60,8 +60,8 @@
       "specialAction": "Cluster Ops",
       "iconType": "SiMongodb",
       "gallery": [
-        "../../public/skills/mongo.webp",
-        "../../public/skills/mongo2.webp"
+        "/skills/mongo.webp",
+        "/skills/mongo2.webp"
       ]
     },
     {
@@ -76,7 +76,7 @@
       "specialAction": "Training Model",
       "iconType": "SiPython",
       "gallery": [
-        "../../public/skills/py.webp"
+        "/skills/py.webp"
       ]
     },
     {
@@ -91,7 +91,7 @@
       "specialAction": "ACID Compliance",
       "iconType": "SiPostgresql",
       "gallery": [
-        "../../public/skills/poss1.webp"
+        "/skills/poss1.webp"
       ]
     },
     {
@@ -106,7 +106,7 @@
       "specialAction": "Cross-Platform",
       "iconType": "SiAndroidstudio",
       "gallery": [
-        "../../public/skills/mobile1.webp"
+        "/skills/mobile1.webp"
       ]
     },
     {
@@ -121,7 +121,7 @@
       "specialAction": "Artisan Core",
       "iconType": "SiLaravel",
       "gallery": [
-        "../../public/skills/lara1.webp"
+        "/skills/lara1.webp"
       ]
     },
     {
@@ -136,7 +136,7 @@
       "specialAction": "JIT Compiler",
       "iconType": "SiTailwindcss",
       "gallery": [
-        "../../public/skills/tail1.webp"
+        "/skills/tail1.webp"
       ]
     },
     {
@@ -151,7 +151,7 @@
       "specialAction": "Compose Up",
       "iconType": "SiDocker",
       "gallery": [
-        "../../public/skills/docker1.webp"
+        "/skills/docker1.webp"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "specialAction": "Dev Mode",
       "iconType": "SiFigma",
       "gallery": [
-        "../../public/skills/figma1.webp"
+        "/skills/figma1.webp"
       ]
     },
     {
@@ -181,7 +181,7 @@
       "specialAction": "Branch Merge",
       "iconType": "SiGithub",
       "gallery": [
-        "../../public/skills/git1.webp"
+        "/skills/git1.webp"
       ]
     }
   ]
