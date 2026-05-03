@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Code2, Sparkles, ChevronRight } from 'lucide-react';
+import data from "../data/avexly.json";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -116,7 +117,7 @@ const Navbar = () => {
                 </div>
                 <span className="text-[10px] font-mono text-gray-300 font-medium">ACTIVE</span>
                 <div className="w-px h-3 bg-white/20" />
-                <span className="text-[10px] font-mono text-blue-400 font-bold">v2.0</span>
+                <span className="text-[10px] font-mono text-blue-400 font-bold">{data.brand.version}</span>
               </div>
             </div>
 
@@ -235,6 +236,7 @@ const navLinks = [
   { path: '/projects', label: 'Projects' },
   { path: '/about', label: 'About', },
   { path: '/contact', label: 'Contact', },
+  /*{ path: '/Certifications', label: 'Certifications'}*/
 ];
 
 export default Navbar;

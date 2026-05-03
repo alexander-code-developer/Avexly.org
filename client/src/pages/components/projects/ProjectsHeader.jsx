@@ -11,7 +11,7 @@ const ProjectsHeader = () => {
         </span>
       </h1>
       <p className="text-slate-400 text-sm md:text-base max-w-2xl mx-auto">
-        Explorando la intersección entre diseño, tecnología e innovación
+        Exploring the intersection of design, technology, and innovation.
       </p>
     </div>
   );

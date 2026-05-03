@@ -89,12 +89,12 @@ const Home = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-5 md:gap-8 justify-center items-center">
-            <Link to="/proyectos"
+            <Link to="/projects"
                   className="w-full sm:w-auto group relative px-10 py-4 bg-blue-600 text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:bg-blue-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:-translate-y-1 active:scale-95">
               Explore Projects
             </Link>
             
-            <Link to="/contacto"
+            <Link to="/contact"
                   className="group flex items-center gap-3 text-slate-500 hover:text-white transition-all duration-300 font-bold text-xs uppercase tracking-[0.2em]">
               <span>Initialize Contact</span>
               <LuArrowRight className="w-5 h-5 group-hover:translate-x-3 transition-transform text-blue-500" />

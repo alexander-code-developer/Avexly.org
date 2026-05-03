@@ -32,9 +32,20 @@ const ProjectCard = ({
         } overflow-hidden`}
         onClick={() => onCardClick(project)}
       >
-        {/* Imagen del proyecto */}
+        {/* Contenedor de Imagen o Video de Cloudinary */}
         <div className="relative h-48 sm:h-52 md:h-56 overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900">
-          {project.image ? (
+          
+          {/* Lógica de Video: Se activa cuando isActive es true */}
+          {isActive && project.video ? (
+            <video
+              src={project.video}
+              autoPlay
+              loop
+              playsInline
+              muted={false} // Mantenemos el sonido para tu demo
+              className="w-full h-full object-cover animate-fade-in transition-all duration-700"
+            />
+          ) : project.image ? (
             <img 
               src={project.image} 
               alt={project.title}
@@ -65,12 +76,12 @@ const ProjectCard = ({
           {/* Indicador de video */}
           {project.video && (
             <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 z-10">
-              <FaVideo className="text-[10px] text-red-400" />
+              <FaVideo className={`text-[10px] ${isActive ? 'text-red-500 animate-pulse' : 'text-red-400'}`} />
               <span className="text-[9px] font-medium text-white">Demo</span>
             </div>
           )}
           
-          {/* Botones flotantes - AHORA CON z-index ALTO */}
+          {/* Botones flotantes */}
           <ProjectCardButtons 
             project={project} 
             isActive={isActive} 
@@ -78,7 +89,7 @@ const ProjectCard = ({
             onInfoClick={onInfoClick}
           />
           
-          {/* Overlay táctil para móvil - SOLO en el área que no cubre botones */}
+          {/* Overlay táctil para móvil */}
           {isMobile && (
             <div
               className="absolute inset-0 z-5"

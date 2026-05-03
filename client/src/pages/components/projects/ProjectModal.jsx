@@ -32,7 +32,6 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Overlay */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -56,7 +55,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
               className="relative max-w-4xl w-full h-fit bg-slate-900 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Header */}
+
               <div className="relative p-6 pb-4 border-b border-slate-800 bg-slate-900">
                 <button 
                   onClick={onClose}
@@ -75,13 +74,12 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                 </div>
               </div>
 
-              {/* Tabs */}
               <div className="sticky top-0 z-20 bg-slate-900 border-b border-slate-800 px-6">
                 <div className="flex gap-6">
                   {[
-                    { id: 'overview', label: 'Visión General', icon: FaDesktop },
-                    { id: 'code', label: 'Código', icon: FaCode },
-                    { id: 'challenge', label: 'Desafíos', icon: FaRocket }
+                    { id: 'overview', label: 'Overview', icon: FaDesktop },
+                    { id: 'code', label: 'Code', icon: FaCode },
+                    { id: 'challenge', label: 'Challenges', icon: FaRocket }
                   ].map((tab) => {
                     const Icon = tab.icon;
                     const isActive = activeTab === tab.id;
@@ -103,7 +101,6 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                 </div>
               </div>
 
-              {/* Content */}
               <div className="p-6 space-y-6">
                 {activeTab === 'overview' && (
                   <div className="space-y-6">
@@ -125,7 +122,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                       <div className="lg:col-span-2 space-y-4">
                         <h3 className="text-lg font-semibold text-white flex items-center gap-2">
                           <FaInfoCircle className="text-blue-500" />
-                          Sobre el proyecto
+                          About the project
                         </h3>
                         <p className="text-slate-400 leading-relaxed">
                           {project.description}
@@ -139,7 +136,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                       </div>
 
                       <div className="space-y-4">
-                        <h3 className="text-lg font-semibold text-white">Tecnologías</h3>
+                        <h3 className="text-lg font-semibold text-white">Technology stack</h3>
                         <div className="flex flex-wrap gap-2">
                           {project.tech?.map(tech => {
                             const IconComponent = getTechIconOnly(tech);
@@ -183,7 +180,6 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                   </div>
                 )}
 
-                {/* Botones */}
                 <div className="flex flex-wrap gap-3 pt-4 border-t border-slate-800">
                   {project.github && (
                     <a 
@@ -202,7 +198,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                       rel="noreferrer" 
                       className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl transition-colors text-sm font-medium"
                     >
-                      <FaExternalLinkAlt /> Demo en Vivo
+                      <FaExternalLinkAlt /> Live demo
                     </a>
                   )}
                 </div>

@@ -1,0 +1,43 @@
+{
+  "certifications": [
+    {
+      "id": 1,
+      "title": "Advanced React & Modern Frontend",
+      "issuer": "Meta",
+      "date": "2024-01-15",
+      "credentialId": "META-REACT-2024-001",
+      "category": "Frontend",
+      "tech": ["React", "JavaScript", "Frontend"],
+      "image": "/certificates/react-advanced.jpg",
+      "description": "Master modern React patterns, hooks, performance optimization and best practices.",
+      "skills": ["Hooks", "Context API", "Performance", "Testing"],
+      "credentialUrl": "https://coursera.org/verify/..."
+    },
+    {
+      "id": 2,
+      "title": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "date": "2023-11-10",
+      "credentialId": "AWS-SAA-C03-12345",
+      "category": "Cloud",
+      "tech": ["AWS", "Cloud", "DevOps"],
+      "image": "/certificates/aws-saa.jpg",
+      "description": "Design distributed systems, cost optimization, security and high availability on AWS.",
+      "skills": ["EC2", "S3", "Lambda", "VPC", "IAM"],
+      "credentialUrl": "https://aws.amazon.com/verification/..."
+    },
+    {
+      "id": 3,
+      "title": "Google Data Analytics Professional",
+      "issuer": "Google",
+      "date": "2023-08-20",
+      "credentialId": "GOOG-DA-987654",
+      "category": "Data",
+      "tech": ["SQL", "Tableau", "R"],
+      "image": "/certificates/google-data-analytics.jpg",
+      "description": "Data cleaning, analysis, visualization and storytelling with data.",
+      "skills": ["Data Cleaning", "SQL", "Tableau", "R", "Statistics"],
+      "credentialUrl": "https://coursera.org/verify/..."
+    }
+  ]
+}

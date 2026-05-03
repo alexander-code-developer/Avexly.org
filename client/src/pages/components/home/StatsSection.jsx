@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { LuRocket, LuAward, LuSparkles } from "react-icons/lu";
 import statsData from "../../../data/stats.json";
+import data from "../../../data/avexly.json";
 
 const ICON_MAP = {
   LuRocket: <LuRocket />,
@@ -108,7 +109,7 @@ const StatsSection = () => {
                 <div className="h-[1px] w-8 bg-slate-800 hidden sm:block"></div>
                 <p className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.4em] flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Terminal_Live: <span className="text-white">v2.0.26</span>
+                    Terminal_Live: <span className="text-white">{data.brand.version}</span>
                 </p>
             </div>
         </div>

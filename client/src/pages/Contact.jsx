@@ -1,11 +1,14 @@
 import { 
   FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, 
-  FaCheckCircle, FaGithub, FaLinkedin, FaTwitter 
+  FaCheckCircle, FaGithub, FaLinkedin, FaWhatsapp 
 } from "react-icons/fa";
 import { IoSendSharp } from "react-icons/io5";
 import { useContact } from "../hooks/useContact";
+// Asumiendo que tu JSON está en una carpeta de datos
+import data from "../data/avexly.json"; 
 
 const Contact = () => {
+  const { contact, socials, brand } = data;
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
   
   const { 
@@ -34,21 +37,37 @@ const Contact = () => {
             </h1>
           </div>
           <p className="text-slate-500 text-sm max-w-[260px] md:text-right leading-relaxed font-medium">
-            Disponible para proyectos freelance y colaboraciones de alto impacto.
+            Available for freelance projects and high-impact digital collaborations.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
           
-          {/* Fila Superior: Info Cards */}
+          {/* Fila Superior: Info Cards (Mapped from JSON) */}
           <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { icon: <FaEnvelope />, val: 'hola@avexly.org', label: 'Email' },
-              { icon: <FaPhoneAlt />, val: '+52 123 456 7890', label: 'Phone' },
-              { icon: <FaMapMarkerAlt />, val: 'México', label: 'Location' }
+              { 
+                icon: <FaEnvelope />, 
+                val: contact.email, 
+                label: 'Email', 
+                href: `mailto:${contact.email}` 
+              },
+              { 
+                icon: <FaPhoneAlt />, 
+                val: contact.phone.display, 
+                label: 'Phone', 
+                href: `tel:${contact.phone.link}` 
+              },
+              { 
+                icon: <FaMapMarkerAlt />, 
+                val: brand.location.city, 
+                label: 'Location', 
+                href: '#' 
+              }
             ].map((item, i) => (
-              <div 
+              <a 
                 key={i} 
+                href={item.href}
                 className="group p-5 bg-slate-900/40 border border-slate-800/60 rounded-2xl transform-gpu transition-all duration-300 hover:border-blue-500/30 hover:bg-slate-900/60 hover:-translate-y-1"
               >
                 <div className="flex items-center gap-4">
@@ -60,7 +79,7 @@ const Contact = () => {
                     <p className="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">{item.val}</p>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
@@ -72,10 +91,10 @@ const Contact = () => {
                   <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1">Name</label>
                   <input
                     type="text"
-                    name="name" // El name es crucial para el hook
+                    name="name"
                     required
                     className="w-full px-4 py-3 bg-slate-950/50 border border-slate-800/80 rounded-xl focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 text-white text-sm transition-all duration-200"
-                    placeholder="Tu nombre"
+                    placeholder="Your name"
                     value={formData.name}
                     onChange={handleChange}
                   />
@@ -101,7 +120,7 @@ const Contact = () => {
                   rows="4"
                   required
                   className="w-full px-4 py-3 bg-slate-950/50 border border-slate-800/80 rounded-xl focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 text-white text-sm transition-all duration-200 resize-none"
-                  placeholder="¿En qué puedo ayudarte?"
+                  placeholder="How can I help you?"
                   value={formData.message}
                   onChange={handleChange}
                 ></textarea>
@@ -116,7 +135,7 @@ const Contact = () => {
                     : 'bg-white text-[#020617] hover:bg-blue-600 hover:text-white shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5 active:scale-95 disabled:opacity-70'}`}
               >
                 {isLoading ? (
-                  <span className="animate-pulse">Enviando mensaje...</span>
+                  <span className="animate-pulse">Sending message...</span>
                 ) : isSuccess ? (
                   <><FaCheckCircle size={16} className="animate-bounce" /> Sent Successfully</>
                 ) : (
@@ -125,8 +144,8 @@ const Contact = () => {
               </button>
 
               {isError && (
-                <p className="text-red-400 text-[10px] text-center font-bold uppercase tracking-widest animate-shake">
-                  ❌ Hubo un error al enviar. Intenta de nuevo.
+                <p className="text-red-400 text-[10px] text-center font-bold uppercase tracking-widest animate-pulse">
+                  ❌ Error sending message. Please try again.
                 </p>
               )}
             </form>
@@ -138,13 +157,15 @@ const Contact = () => {
               <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-600 mb-6">Connect</h3>
               <div className="flex flex-wrap justify-center gap-3">
                 {[
-                  { icon: <FaGithub />, link: '#', color: 'hover:bg-white hover:text-black' },
-                  { icon: <FaLinkedin />, link: '#', color: 'hover:bg-blue-600 hover:text-white' },
-                  { icon: <FaTwitter />, link: '#', color: 'hover:bg-sky-500 hover:text-white' }
+                  { icon: <FaGithub />, link: socials.github, color: 'hover:bg-white hover:text-black' },
+                  { icon: <FaLinkedin />, link: socials.linkedin, color: 'hover:bg-blue-600 hover:text-white' },
+                  { icon: <FaWhatsapp />, link: socials.whatsapp, color: 'hover:bg-emerald-500 hover:text-white' }
                 ].map((soc, i) => (
                   <a 
                     key={i} 
                     href={soc.link} 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`p-4 bg-slate-950 border border-slate-800/50 rounded-2xl text-slate-400 transform-gpu transition-all duration-300 hover:-translate-y-1.5 ${soc.color}`}
                   >
                     {soc.icon}
@@ -156,7 +177,7 @@ const Contact = () => {
             <div className="p-6 bg-gradient-to-br from-blue-600/10 to-transparent border border-blue-500/10 rounded-3xl flex flex-col items-center justify-center text-center group">
                 <p className="text-blue-400 font-bold text-[10px] uppercase tracking-widest mb-2 group-hover:text-blue-300 transition-colors">Fast Response</p>
                 <p className="text-slate-500 text-[11px] font-medium leading-relaxed">
-                  Respuesta garantizada en menos de <span className="text-slate-300 font-bold">24 horas</span>.
+                  Guaranteed response in less than <span className="text-slate-300 font-bold">24 hours</span>.
                 </p>
             </div>
           </div>

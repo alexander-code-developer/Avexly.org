@@ -23,7 +23,6 @@ const Footer = () => {
               Engineering the next era
             </p>
           </div>
-¿
           <div className="order-3 md:order-2">
             <p className="text-slate-500 text-xs font-mono">
               © {currentYear} <span className="text-slate-300">{avexly.brand.legalName}</span>. 

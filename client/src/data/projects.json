@@ -1,198 +1,70 @@
 {
   "projects": [
     {
-      "id": 1,
-      "title": "Avexly Biometric Identity",
-      "description": "Sistema de identidad centralizada para ligas de fútbol amateur con mapeo facial y biometría avanzada. Implementa algoritmos de reconocimiento facial y verificación de identidad en tiempo real.",
-      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
-      "tech": ["React Native", "Node.js", "MongoDB", "AI"],
-      "category": "Full Stack",
-      "github": "https://github.com/avexly",
-      "demo": "https://avexly.org",
-      "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      "features": [
-        "Registro biométrico con cámara en tiempo real",
-        "Verificación facial con IA (98% precisión)",
-        "Dashboard de administración de ligas y jugadores",
-        "Reportes automáticos de asistencia",
-        "API RESTful documentada con Swagger"
-      ],
-      "codeSnippets": [
-        {
-          "title": "Middleware de Autenticación Biométrica",
-          "code": "const verifyBiometric = async (req, res, next) => {\n  const { userId, facialData } = req.body;\n  \n  try {\n    const user = await User.findById(userId);\n    const isValid = await faceMatcher.compare(user.facialHash, facialData);\n    \n    if (!isValid) {\n      return res.status(401).json({ error: 'Verificación facial fallida' });\n    }\n    \n    req.user = user;\n    next();\n  } catch (error) {\n    res.status(500).json({ error: error.message });\n  }\n};",
-          "language": "javascript"
-        },
-        {
-          "title": "Componente de Captura Facial",
-          "code": "const FaceCapture = () => {\n  const [image, setImage] = useState(null);\n  const [isDetecting, setIsDetecting] = useState(false);\n\n  const handleCapture = async (capturedImage) => {\n    setIsDetecting(true);\n    try {\n      const result = await faceDetectionAPI.verify(capturedImage);\n      if (result.confidence > 0.95) {\n        await saveBiometricData(result);\n        showSuccess('Identidad verificada');\n      }\n    } finally {\n      setIsDetecting(false);\n    }\n  };\n\n  return <Camera onCapture={handleCapture} />;\n};",
-          "language": "jsx"
-        }
-      ],
-      "challenge": "El mayor desafío fue optimizar el tiempo de procesamiento facial en dispositivos móviles de gama baja, manteniendo una precisión del 95% en condiciones de iluminación variables.",
-      "solution": "Implementé un modelo TensorFlow Lite optimizado con técnicas de compresión y caché local. Se redujo el tiempo de procesamiento de 3s a 0.8s usando WebGL para aceleración por GPU."
+  "id": 1,
+  "title": "PetCare: All-in-One Pet Ecosystem",
+  "description": "A comprehensive digital platform for veterinary services and animal welfare. It centralizes grooming, training, adoption, and emergency services within a high-performance, modern interface.",
+  "image": "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=800&auto=format&fit=crop",
+  "tech": ["React", "Tailwind CSS", "Cloudinary", "Framer Motion"],
+  "category": "Frontend",
+  "github": "https://github.com/avexly/petcare",
+  "demo": "https://petcare.avexly.org",
+  "video": "https://res.cloudinary.com/ddjn9k1ox/video/upload/v1777682861/2026-05-01_18-16-01_wwndbg.mp4",
+  "features": [
+    "Booking management system for grooming and specialized training",
+    "Adoption module with dynamic filters by species, size, and age",
+    "Integrated E-commerce store with a premium product catalog",
+    "Active community hub with consultation forums and veterinary tips",
+    "24/7 Emergency response section with integrated clinic locations"
+  ],
+  "codeSnippets": [
+    {
+      "title": "Performance Optimization via Lazy Loading",
+      "code": "const ServiceModule = React.lazy(() => import('./modules/Services'));\n\nconst App = () => (\n  <Suspense fallback={<LoadingSpinner />}>\n    <section>\n      <ServiceModule />\n    </section>\n  </Suspense>\n);",
+      "language": "javascript"
     },
     {
-      "id": 2,
-      "title": "Academic Survey System",
-      "description": "Sistema integral de gestión de encuestas para instituciones educativas con análisis de datos en tiempo real y generación automática de reportes estadísticos.",
-      "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop",
-      "tech": ["Next.js", "Express", "MongoDB", "Tailwind", "React"],
-      "category": "Full Stack",
-      "github": "https://github.com/avexly",
-      "demo": "https://avexly.org",
-      "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      "features": [
-        "Creador de encuestas drag-and-drop",
-        "Análisis estadístico en tiempo real",
-        "Exportación a PDF/Excel",
-        "Múltiples roles (admin, profesor, estudiante)",
-        "Sistema de notificaciones por email"
-      ],
-      "codeSnippets": [
-        {
-          "title": "API de Resultados en Tiempo Real",
-          "code": "socket.on('newResponse', async (response) => {\n  const updatedStats = await Survey.aggregate([\n    { $match: { _id: response.surveyId } },\n    { $unwind: '$questions' },\n    { $group: {\n      _id: '$questions.text',\n      average: { $avg: '$responses.value' }\n    }}\n  ]);\n  \n  socket.emit('statsUpdate', updatedStats);\n});",
-          "language": "javascript"
-        }
-      ],
-      "challenge": "Manejar la concurrencia de cientos de estudiantes respondiendo encuestas simultáneamente sin afectar el rendimiento.",
-      "solution": "Implementé un sistema de colas con Bull y Redis, junto con actualizaciones vía WebSocket para evitar sobrecargar la base de datos."
-    },
-    {
-      "id": 3,
-      "title": "School Institutional Web",
-      "description": "Plataforma informativa para escuelas con enfoque en accesibilidad y diseño moderno minimalista. Cumple con estándares WCAG 2.1.",
-      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
-      "tech": ["React", "Tailwind"],
-      "category": "Frontend",
-      "github": "https://github.com/avexly",
-      "demo": "https://avexly.org",
-      "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      "features": [
-        "Diseño 100% responsive",
-        "Modo oscuro/claro",
-        "Lector de pantalla optimizado",
-        "Animaciones suaves con Framer Motion",
-        "Formulario de contacto con validación"
-      ],
-      "codeSnippets": [
-        {
-          "title": "Hook de Accesibilidad",
-          "code": "const useAccessibility = () => {\n  useEffect(() => {\n    const handleKeyPress = (e) => {\n      if (e.key === 'Tab') {\n        document.body.classList.add('keyboard-nav');\n      }\n    };\n    \n    window.addEventListener('keydown', handleKeyPress);\n    return () => window.removeEventListener('keydown', handleKeyPress);\n  }, []);\n  \n  return { skipToContent: () => document.getElementById('main').focus() };\n};",
-          "language": "javascript"
-        }
-      ],
-      "challenge": "Mantener un rendimiento óptimo en dispositivos con conexiones lentas sin sacrificar la experiencia visual.",
-      "solution": "Implementé lazy loading en todas las imágenes, código dividido por rutas y optimización de fuentes con next/font o estrategias similares."
-    },
-    {
-      "id": 4,
-      "title": "WhatsApp Project Evaluator",
-      "description": "Clon de interfaz de mensajería para evaluación de proyectos con gestión de estados compleja usando Context API y reducers.",
-      "image": "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=800&auto=format&fit=crop",
-      "tech": ["React", "Tailwind", "Framer Motion"],
-      "category": "Frontend",
-      "github": "https://github.com/avexly",
-      "demo": "https://avexly.org",
-      "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      "features": [
-        "Chat en tiempo real simulado",
-        "Indicadores de escritura",
-        "Notificaciones de mensajes",
-        "Búsqueda de conversaciones",
-        "Archivos adjuntos (demo)"
-      ],
-      "codeSnippets": [
-        {
-          "title": "Reducer de Mensajes",
-          "code": "const messageReducer = (state, action) => {\n  switch (action.type) {\n    case 'SEND_MESSAGE':\n      return {\n        ...state,\n        messages: [...state.messages, {\n          id: Date.now(),\n          text: action.payload,\n          timestamp: new Date(),\n          status: 'sent'\n        }]\n      };\n    case 'SET_TYPING':\n      return { ...state, isTyping: action.payload };\n    default:\n      return state;\n  }\n};",
-          "language": "javascript"
-        }
-      ],
-      "challenge": "Sincronizar el estado global de múltiples conversaciones sin causar re-renderizados innecesarios.",
-      "solution": "Implementé selectors con useMemo y dividí el contexto en múltiples providers (AuthContext, ChatContext, UIContext)."
-    },
-    {
-      "id": 5,
-      "title": "VetConnect Pro Interface",
-      "description": "Frontend avanzado para gestión de clínicas veterinarias con sistemas de citas, expedientes médicos digitales y recordatorios automáticos.",
-      "image": "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=800&auto=format&fit=crop",
-      "tech": ["React", "Tailwind", "TypeScript"],
-      "category": "Frontend",
-      "github": "https://github.com/avexly",
-      "demo": "https://avexly.org",
-      "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      "features": [
-        "Calendario interactivo de citas",
-        "Historial clínico por mascota",
-        "Gestión de inventario",
-        "Dashboard con métricas clave",
-        "Sistema de recordatorios SMS"
-      ],
-      "codeSnippets": [
-        {
-          "title": "Componente de Calendario con TypeScript",
-          "code": "interface Appointment {\n  id: string;\n  petName: string;\n  ownerName: string;\n  date: Date;\n  type: 'checkup' | 'surgery' | 'vaccine';\n}\n\nconst Calendar: React.FC<{ appointments: Appointment[] }> = ({ appointments }) => {\n  const [selectedDate, setSelectedDate] = useState<Date>(new Date());\n  \n  const getAppointmentsByDate = (date: Date) => {\n    return appointments.filter(apt => \n      format(apt.date, 'yyyy-MM-dd') === format(date, 'yyyy-MM-dd')\n    );\n  };\n  \n  return <div className=\"calendar-grid\">...</div>;\n};",
-          "language": "typescript"
-        }
-      ],
-      "challenge": "Manejar el estado complejo del formulario de mascotas con múltiples campos dinámicos y validaciones cruzadas.",
-      "solution": "Utilicé React Hook Form con Zod para validaciones, reduciendo el código boilerplate y mejorando la experiencia del usuario."
-    },
-    {
-      "id": 6,
-      "title": "E-commerce Premium",
-      "description": "Tienda online con MERN stack, pasarela de pagos Stripe, dashboard administrativo y carrito de compras persistente.",
-      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
-      "tech": ["React", "Next.js", "Tailwind", "Stripe"],
-      "category": "Frontend",
-      "github": "https://github.com/avexly",
-      "demo": "https://avexly.org",
-      "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      "features": [
-        "Carrito de compras con localStorage",
-        "Integración con Stripe Payments",
-        "Panel de administración de productos",
-        "Sistema de reseñas y calificaciones",
-        "Filtros avanzados y búsqueda"
-      ],
-      "codeSnippets": [
-        {
-          "title": "Integración con Stripe",
-          "code": "const handlePayment = async () => {\n  const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);\n  \n  const response = await fetch('/api/create-payment-intent', {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify({ items: cartItems })\n  });\n  \n  const { clientSecret } = await response.json();\n  \n  const { error } = await stripe.confirmCardPayment(clientSecret);\n  if (error) console.error(error);\n};",
-          "language": "javascript"
-        }
-      ],
-      "challenge": "Mantener la consistencia del carrito entre sesiones y dispositivos.",
-      "solution": "Combiné localStorage para usuarios no autenticados y base de datos para usuarios registrados, sincronizando ambos estados."
-    },
-    {
-      "id": 7,
-      "title": "Analytics Dashboard",
-      "description": "Monitor de métricas masivas con visualización gráfica, manejo de Big Data y actualizaciones en tiempo real usando WebSockets.",
-      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-      "tech": ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-      "category": "Full Stack",
-      "github": "",
-      "demo": "",
-      "video": "",
-      "features": [
-        "Gráficos interactivos con Chart.js",
-        "Filtros por fechas y categorías",
-        "Exportación de datos en CSV",
-        "Alertas personalizables",
-        "Dashboard drag-and-drop"
-      ],
-      "codeSnippets": [
-        {
-          "title": "Consulta Optimizada con Prisma",
-          "code": "const getSalesData = async (startDate: Date, endDate: Date) => {\n  const sales = await prisma.sale.groupBy({\n    by: ['productId'],\n    where: {\n      date: { gte: startDate, lte: endDate }\n    },\n    _sum: { amount: true },\n    _count: true,\n    orderBy: { _sum: { amount: 'desc' } }\n  });\n  \n  return sales.map(sale => ({\n    productId: sale.productId,\n    totalAmount: sale._sum.amount,\n    totalSales: sale._count\n  }));\n};",
-          "language": "typescript"
-        }
-      ],
-      "challenge": "Optimizar consultas a la base de datos con millones de registros para mostrar resultados en menos de 2 segundos.",
-      "solution": "Implementé índices compuestos en PostgreSQL, caché con Redis para consultas frecuentes y paginación con cursores."
+      "title": "Lightweight Animations with Framer Motion",
+      "code": "const GlassCard = ({ children }) => (\n  <motion.div\n    initial={{ opacity: 0, y: 20 }}\n    whileInView={{ opacity: 1, y: 0 }}\n    viewport={{ once: true }}\n    transition={{ duration: 0.5 }}\n    className=\"backdrop-blur-md bg-white/10\"\n  >\n    {children}\n  </motion.div>\n);",
+      "language": "jsx"
     }
+  ],
+  "challenge": "The main challenge was building a visually rich platform with fluid animations under a zero-budget infrastructure constraint, while ensuring fast load times (Low LCP) despite the use of videos and heavy media assets.",
+  "solution": "Implemented a 'Serverless-first' architecture leveraging Cloudinary for asset delivery and Railway for deployment. I integrated Intersection Observer for lazy loading images and videos, successfully reducing the initial page weight by 65% without sacrificing the aesthetic quality of the animations."
+},
+    {
+  "id": 2,
+  "title": "Academic Survey System - ITSOEH",
+  "description": "A secure, role-based survey platform developed for the ITSOEH Technological University. It streamlines teacher evaluations and campus service assessments (cafeteria, infrastructure) with automated reporting.",
+  "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop",
+  "tech": ["Express", "Node.js", "MongoDB", "React", "Tailwind CSS", "Brevo"],
+  "category": "Full Stack",
+  "github": "https://github.com/avexly/academic-survey",
+  "demo": "https://encuestas.avexly.org/",
+  "video": "https://res.cloudinary.com/ddjn9k1ox/video/upload/v1777684116/2026-05-01_19-06-44_t2smad.mp4",
+  "features": [
+    "Three-tier role management (Admin, Teacher, Student)",
+    "Automated credential delivery via Brevo SMTP integration",
+    "Admin-only user provisioning and secure access control",
+    "Evaluation modules for teaching performance and campus services",
+    "Clean, institutional UI designed for accessibility and high usability"
+  ],
+  "codeSnippets": [
+    {
+      "title": "Automated Email Credential Delivery",
+      "code": "const sendCredentials = async (email, password) => {\n  const apiInstance = new Brevo.TransactionalEmailsApi();\n  await apiInstance.sendTransacEmail({\n    sender: { email: 'admin@itsoeh.edu.mx' },\n    to: [{ email }],\n    subject: 'ITSOEH Portal Credentials',\n    textContent: `User: ${email} \\n Pass: ${password}`\n  });\n};",
+      "language": "javascript"
+    },
+    {
+      "title": "Role-Based Access Middleware",
+      "code": "const authorize = (roles = []) => {\n  return (req, res, next) => {\n    if (!roles.includes(req.user.role)) {\n      return res.status(403).json({ message: 'Unauthorized Access' });\n    }\n    next();\n  };\n};",
+      "language": "javascript"
+    }
+  ],
+  "challenge": "Implementing a secure credential distribution system while managing concurrent database writes during peak evaluation periods (finals week).",
+  "solution": "Integrated Brevo for reliable SMTP delivery and optimized MongoDB aggregation pipelines to handle real-time statistical generation for administrative reports without performance lag."
+
+
+   }
   ]
 }
