@@ -236,6 +236,7 @@ const navLinks = [
   { path: '/projects', label: 'Projects' },
   { path: '/about', label: 'About', },
   { path: '/contact', label: 'Contact', },
+  { path: '/library', label: 'Library', },
   /*{ path: '/Certifications', label: 'Certifications'}*/
 ];
 

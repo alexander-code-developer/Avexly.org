@@ -1,0 +1,21 @@
+{
+  "name": "@alexander_avexly/ui",
+  "version": "1.0.0",
+  "description": "Librería de componentes atómicos con efectos de escaneo y estética dark-futurista.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "vite build -c ../../vite.library.config.js"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "framer-motion": "^12.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}
