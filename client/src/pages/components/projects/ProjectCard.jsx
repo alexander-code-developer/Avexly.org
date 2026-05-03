@@ -37,14 +37,14 @@ const ProjectCard = ({
           
           {/* Lógica de Video: Se activa cuando isActive es true */}
           {isActive && project.video ? (
-            <video
-              src={project.video}
-              autoPlay
-              loop
-              playsInline
-              muted={false} // Mantenemos el sonido para tu demo
-              className="w-full h-full object-cover animate-fade-in transition-all duration-700"
-            />
+  <video
+    src={project.video}
+    autoPlay
+    loop
+    playsInline
+    muted={true} // <--- CAMBIO: Mantenlo muteado en la rejilla
+    className="w-full h-full object-cover animate-fade-in transition-all duration-700"
+  />
           ) : project.image ? (
             <img 
               src={project.image} 

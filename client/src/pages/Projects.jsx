@@ -41,14 +41,18 @@ const Projects = () => {
   }, [activeFilter]);
 
   // Handlers
-  const handleCardClick = (project) => {
-    setSelectedProject(project);
-  };
+  
+const handleCardClick = (project) => {
+  setActiveCardId(null); 
+  setSelectedProject(project);
+};
 
-  const handleInfoClick = (project, e) => {
-    e.stopPropagation();
-    setSelectedProject(project);
-  };
+  
+const handleInfoClick = (project, e) => {
+  e.stopPropagation();
+  setActiveCardId(null); 
+  setSelectedProject(project);
+};
 
   const handleMouseEnter = (projectId) => {
     if (!isMobile) {
@@ -63,15 +67,22 @@ const Projects = () => {
   };
 
   const handleMobileActivate = (projectId, e) => {
-    if (isMobile) {
-      e.stopPropagation();
-      setActiveCardId(activeCardId === projectId ? null : projectId);
+  if (isMobile) {
+    e.stopPropagation();
+    if (activeCardId === projectId) {
+      handleCardClick(data.projects.find(p => p.id === projectId));
+    } else {
+      setActiveCardId(projectId);
     }
-  };
+  }
+};
 
   const handleResetFilter = () => {
     setActiveFilter('All');
   };
+
+
+
 
   return (
     <section className="min-h-screen pt-24 pb-20 px-4 md:px-6 bg-gradient-to-br from-[#020617] via-[#0a0f2a] to-[#020617] antialiased">
