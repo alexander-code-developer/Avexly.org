@@ -1,6 +1,5 @@
-// src/library/components/AtomicButton.jsx
+// En AtomicButton.jsx, déjalo así:
 import { LuZap } from "react-icons/lu";
-
 const AtomicButton = ({ children, onClick, icon: Icon = LuZap }) => {
   return (
     <button 

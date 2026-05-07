@@ -4,25 +4,22 @@ import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  publicDir: false,
   build: {
-    outDir: 'src/library/dist',
+    outDir: resolve(__dirname, 'src/library/dist'), // 👈 AQUÍ ESTÁ LA CLAVE
     lib: {
-      // Punto de entrada de la librería
       entry: resolve(__dirname, 'src/library/index.js'),
       name: 'AveUI',
-      fileName: (format) => `index.${format === 'es' ? 'mjs' : 'js'}`,
+      fileName: () => 'index.mjs',
+      formats: ['es'],
     },
     rollupOptions: {
-      // No incluyas estas librerías en el paquete final (el usuario ya las tiene)
-      external: ['react', 'react-dom', 'framer-motion', 'tailwindcss', 'react-router-dom'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          'framer-motion': 'Motion'
-        },
-      },
-    },
-  },
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        'framer-motion',
+        'react-icons'
+      ],
+    }
+  }
 });

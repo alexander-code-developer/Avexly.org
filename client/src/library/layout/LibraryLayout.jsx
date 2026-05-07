@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import LibrarySidebar from './LibrarySidebar';
 import Navbar from "..//../components/Navbar"
+import LibraryFooter from './LibraryFooter';
 
 const LibraryLayout = () => {
   return (
@@ -18,6 +19,8 @@ const LibraryLayout = () => {
         <div className="max-w-5xl mx-auto p-6 md:p-8 lg:p-12 w-full relative z-0">
           <Outlet />
         </div>
+
+        <LibraryFooter/>
       </main>
 
     </div>
