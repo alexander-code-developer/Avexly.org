@@ -1,10 +1,11 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, 
-  FaCheckCircle, FaGithub, FaLinkedin, FaWhatsapp 
+  FaCheckCircle, FaGithub, FaLinkedin, FaWhatsapp, FaPaperPlane 
 } from "react-icons/fa";
 import { IoSendSharp } from "react-icons/io5";
 import { useContact } from "../hooks/useContact";
-// Asumiendo que tu JSON está en una carpeta de datos
 import data from "../data/avexly.json"; 
 
 const Contact = () => {
@@ -17,8 +18,35 @@ const Contact = () => {
     sendEmail, 
     isLoading, 
     isSuccess, 
-    isError 
+    isError,
+    resetStatus
   } = useContact(API_URL);
+
+  const [showModal, setShowModal] = useState(false);
+
+  // Efecto para controlar la aparición y auto-cierre del modal
+  useEffect(() => {
+    if (isSuccess) {
+      setShowModal(true);
+      
+      // Auto-cierre tras 4 segundos (dando tiempo a la animación de 3s del avión)
+      const timer = setTimeout(() => {
+        setShowModal(false);
+        resetStatus(); // Resetear el estado después de cerrar el modal
+      }, 4000); 
+
+      return () => clearTimeout(timer);
+    } else {
+      // Si isSuccess se vuelve false, cerramos el modal
+      setShowModal(false);
+    }
+  }, [isSuccess, resetStatus]);
+
+  // Función para cerrar manualmente el modal
+  const handleCloseModal = () => {
+    setShowModal(false);
+    resetStatus(); // Resetear el estado al cerrar manualmente
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center lg:pt-12 pt-20 px-4 bg-[#020617] overflow-hidden">
@@ -42,36 +70,20 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          
-          {/* Fila Superior: Info Cards (Mapped from JSON) */}
+          {/* Info Cards */}
           <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { 
-                icon: <FaEnvelope />, 
-                val: contact.email, 
-                label: 'Email', 
-                href: `mailto:${contact.email}` 
-              },
-              { 
-                icon: <FaPhoneAlt />, 
-                val: contact.phone.display, 
-                label: 'Phone', 
-                href: `tel:${contact.phone.link}` 
-              },
-              { 
-                icon: <FaMapMarkerAlt />, 
-                val: brand.location.city, 
-                label: 'Location', 
-                href: '#' 
-              }
+              { icon: <FaEnvelope />, val: contact.email, label: 'Email', href: `mailto:${contact.email}` },
+              { icon: <FaPhoneAlt />, val: contact.phone.display, label: 'Phone', href: `tel:${contact.phone.link}` },
+              { icon: <FaMapMarkerAlt />, val: brand.location.city, label: 'Location', href: '#' }
             ].map((item, i) => (
               <a 
                 key={i} 
                 href={item.href}
-                className="group p-5 bg-slate-900/40 border border-slate-800/60 rounded-2xl transform-gpu transition-all duration-300 hover:border-blue-500/30 hover:bg-slate-900/60 hover:-translate-y-1"
+                className="group p-5 bg-slate-900/40 border border-slate-800/60 rounded-2xl transition-all duration-300 hover:border-blue-500/30 hover:bg-slate-900/60"
               >
                 <div className="flex items-center gap-4">
-                  <div className="text-blue-400 bg-blue-500/5 p-3 rounded-xl group-hover:bg-blue-500/10 transition-colors duration-300">
+                  <div className="text-blue-400 bg-blue-500/5 p-3 rounded-xl group-hover:bg-blue-500/10 transition-colors">
                     {item.icon}
                   </div>
                   <div>
@@ -84,7 +96,7 @@ const Contact = () => {
           </div>
 
           {/* Formulario */}
-          <div className="lg:col-span-8 bg-slate-900/40 border border-slate-800/60 rounded-3xl p-8 transform-gpu transition-all duration-500">
+          <div className="lg:col-span-8 bg-slate-900/40 border border-slate-800/60 rounded-3xl p-8 transition-all duration-500">
             <form onSubmit={sendEmail} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -93,7 +105,7 @@ const Contact = () => {
                     type="text"
                     name="name"
                     required
-                    className="w-full px-4 py-3 bg-slate-950/50 border border-slate-800/80 rounded-xl focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 text-white text-sm transition-all duration-200"
+                    className="w-full px-4 py-3 bg-slate-950/50 border border-slate-800/80 rounded-xl focus:outline-none focus:border-blue-500/50 text-white text-sm transition-all"
                     placeholder="Your name"
                     value={formData.name}
                     onChange={handleChange}
@@ -105,7 +117,7 @@ const Contact = () => {
                     type="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 bg-slate-950/50 border border-slate-800/80 rounded-xl focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 text-white text-sm transition-all duration-200"
+                    className="w-full px-4 py-3 bg-slate-950/50 border border-slate-800/80 rounded-xl focus:outline-none focus:border-blue-500/50 text-white text-sm transition-all"
                     placeholder="email@example.com"
                     value={formData.email}
                     onChange={handleChange}
@@ -119,7 +131,7 @@ const Contact = () => {
                   name="message"
                   rows="4"
                   required
-                  className="w-full px-4 py-3 bg-slate-950/50 border border-slate-800/80 rounded-xl focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 text-white text-sm transition-all duration-200 resize-none"
+                  className="w-full px-4 py-3 bg-slate-950/50 border border-slate-800/80 rounded-xl focus:outline-none focus:border-blue-500/50 text-white text-sm transition-all resize-none"
                   placeholder="How can I help you?"
                   value={formData.message}
                   onChange={handleChange}
@@ -129,31 +141,31 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isLoading || isSuccess}
-                className={`w-full group flex items-center justify-center gap-3 py-4 rounded-xl font-black tracking-[0.2em] uppercase text-[11px] transform-gpu transition-all duration-300
+                className={`w-full group flex items-center justify-center gap-3 py-4 rounded-xl font-black tracking-[0.2em] uppercase text-[11px] transition-all duration-300
                   ${isSuccess 
-                    ? 'bg-emerald-500 text-white scale-[0.98]' 
-                    : 'bg-white text-[#020617] hover:bg-blue-600 hover:text-white shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5 active:scale-95 disabled:opacity-70'}`}
+                    ? 'bg-emerald-500 text-white' 
+                    : 'bg-white text-[#020617] hover:bg-blue-600 hover:text-white shadow-lg active:scale-95 disabled:opacity-70'}`}
               >
                 {isLoading ? (
                   <span className="animate-pulse">Sending message...</span>
                 ) : isSuccess ? (
                   <><FaCheckCircle size={16} className="animate-bounce" /> Sent Successfully</>
                 ) : (
-                  <><IoSendSharp size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300 ease-out" /> Send Message</>
+                  <><IoSendSharp size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /> Send Message</>
                 )}
               </button>
 
               {isError && (
                 <p className="text-red-400 text-[10px] text-center font-bold uppercase tracking-widest animate-pulse">
-                  ❌ Error sending message. Please try again.
+                  ✕ Error sending message. Please try again.
                 </p>
               )}
             </form>
           </div>
 
-          {/* Social Connect & Extra */}
+          {/* Social Connect */}
           <div className="lg:col-span-4 flex flex-col gap-4">
-            <div className="flex-1 p-6 bg-slate-900/40 border border-slate-800/60 rounded-3xl flex flex-col justify-center items-center text-center transform-gpu hover:border-blue-500/20 transition-all duration-300">
+            <div className="flex-1 p-6 bg-slate-900/40 border border-slate-800/60 rounded-3xl flex flex-col justify-center items-center text-center hover:border-blue-500/20 transition-all">
               <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-600 mb-6">Connect</h3>
               <div className="flex flex-wrap justify-center gap-3">
                 {[
@@ -166,7 +178,7 @@ const Contact = () => {
                     href={soc.link} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-4 bg-slate-950 border border-slate-800/50 rounded-2xl text-slate-400 transform-gpu transition-all duration-300 hover:-translate-y-1.5 ${soc.color}`}
+                    className={`p-4 bg-slate-950 border border-slate-800/50 rounded-2xl text-slate-400 transition-all hover:-translate-y-1 ${soc.color}`}
                   >
                     {soc.icon}
                   </a>
@@ -181,9 +193,73 @@ const Contact = () => {
                 </p>
             </div>
           </div>
-
         </div>
       </div>
+
+      {/* --- REFINED MODAL --- */}
+      <AnimatePresence>
+        {showModal && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+            {/* Overlay con blur profundo - Al hacer click afuera también se cierra */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={handleCloseModal}
+              className="absolute inset-0 bg-[#020617]/90 backdrop-blur-2xl cursor-pointer"
+            />
+
+            {/* Contenedor del Modal */}
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative bg-slate-950/50 border border-slate-800/50 p-12 rounded-[2.5rem] max-w-sm w-full text-center overflow-hidden pointer-events-none"
+            >
+              {/* Sutil brillo interior */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+
+              <div className="relative h-44 w-full flex items-center justify-center mb-4">
+                {/* Trayectoria de vuelo optimizada */}
+                <motion.div
+                  initial={{ x: -180, y: 100, opacity: 0, rotate: 20 }}
+                  animate={{ 
+                    x: [ -180, 0, 280 ], 
+                    y: [ 100, 0, -180 ],
+                    opacity: [ 0, 1, 0 ],
+                    rotate: [ 20, 0, -20 ]
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    ease: "easeInOut"
+                  }}
+                  className="text-blue-400 text-6xl"
+                >
+                  <FaPaperPlane className="drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]" />
+                </motion.div>
+
+                {/* Estela de vapor sutil */}
+                <motion.div 
+                   initial={{ scaleX: 0, opacity: 0 }}
+                   animate={{ scaleX: 1, opacity: [0, 0.3, 0] }}
+                   transition={{ duration: 2, delay: 0.2 }}
+                   className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-slate-500/30 to-transparent rotate-[-35deg] origin-left"
+                />
+              </div>
+
+              <h3 className="text-2xl font-black text-white mb-2 tracking-tighter">
+                ¡MENSAJE EN CAMINO!
+              </h3>
+              <p className="text-slate-400 text-xs uppercase tracking-widest font-bold">
+                Gracias, <span className="text-blue-500">{formData.name}</span>
+              </p>
+              <p className="text-slate-500 text-sm mt-4 leading-relaxed italic">
+                "Tu mensaje ha sido enviado con éxito. <br/> Estaremos en contacto pronto."
+              </p>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

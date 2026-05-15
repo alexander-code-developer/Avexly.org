@@ -30,15 +30,32 @@ export const useContact = (backendUrl) => {
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
-        setTimeout(() => setStatus('idle'), 3000);
+        // Eliminamos el timeout de aquí para manejarlo desde el componente
       } else {
         setStatus('error');
+        // Timeout para resetear el error después de 3 segundos
+        setTimeout(() => setStatus('idle'), 3000);
       }
     } catch (error) {
       setStatus('error');
+      // Timeout para resetear el error después de 3 segundos
+      setTimeout(() => setStatus('idle'), 3000);
     }
   };
 
-  return { formData, status, handleChange, sendEmail, 
-           isLoading: status === 'loading', isSuccess: status === 'success', isError: status === 'error' };
+  // Función para resetear el estado manualmente
+  const resetStatus = () => {
+    setStatus('idle');
+  };
+
+  return { 
+    formData, 
+    status, 
+    handleChange, 
+    sendEmail, 
+    isLoading: status === 'loading', 
+    isSuccess: status === 'success', 
+    isError: status === 'error',
+    resetStatus
+  };
 };
