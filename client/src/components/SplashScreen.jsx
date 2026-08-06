@@ -13,62 +13,37 @@ const SplashScreen = ({ onFinished }) => {
       index++;
       if (index > fullText.length) {
         clearInterval(interval);
-      setTimeout(() => setFadeOut(true), 1200);
-        
-         setTimeout(() => onFinished(), 2000);
+        setTimeout(() => setFadeOut(true), 1200);
+        setTimeout(() => onFinished(), 2000);
       }
     }, 50);
 
     return () => clearInterval(interval);
   }, [onFinished]);
 
-  const styles = {
-    container: {
-      position: 'fixed',
-      top: 0, left: 0,
-      width: '100vw', height: '100vh',
-      backgroundColor: '#020617', 
-      color: '#f8fafc', 
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      zIndex: 9999,
-      transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
-      opacity: fadeOut ? 0 : 1,
-      filter: fadeOut ? 'blur(10px)' : 'none',
-      transform: fadeOut ? 'scale(1.05)' : 'scale(1)',
-    },
-    brandContainer: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: '12px'
-    },
-    text: {
-      fontFamily: "'Inter', 'Segoe UI', sans-serif", 
-      fontSize: '1.5rem',
-      fontWeight: '300',
-      letterSpacing: '0.1em',
-      borderRight: '2px solid #3b82f6', 
-      paddingRight: '8px',
-      margin: 0
-    }
-  };
-
   return (
-    <div style={styles.container}>
+    <div className="fixed inset-0 bg-[#020617] text-slate-50 flex flex-col justify-center items-center z-[9999] transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-100 scale-100"
+      style={{
+        opacity: fadeOut ? 0 : 1,
+        filter: fadeOut ? 'blur(10px)' : 'none',
+        transform: fadeOut ? 'scale(1.05)' : 'scale(1)',
+      }}
+    >
       <style>
         {`
           @keyframes blink {
             50% { border-color: transparent }
           }
-          h1 {
+          .splash-cursor {
             animation: blink 0.8s step-end infinite;
           }
         `}
       </style>
-      <div style={styles.brandContainer}>
-        <h1 style={styles.text}>{text}</h1>
+      
+      <div className="flex items-center gap-3 md:gap-4">
+        <h1 className="font-['Inter',_'Segoe_UI',_sans-serif] text-base sm:text-lg md:text-2xl lg:text-3xl font-light tracking-[0.1em] border-r-2 border-blue-500 pr-2 md:pr-3 splash-cursor m-0">
+          {text}
+        </h1>
       </div>
     </div>
   );

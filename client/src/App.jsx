@@ -9,7 +9,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Certifications from './pages/Certifications';
 import SplashScreen from './components/SplashScreen';
-
+import HowWorking from './pages/HowWorking';
 //library
 import { LibraryLayout } from './library/layout';
 import { 
@@ -40,6 +40,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="Certifications" element={<Certifications/>} />
+            <Route path="HowWorking" element={<HowWorking/>}/>
           </Route>
 
           {/* 3. LIBRERÍA (Usa LibraryLayout con su propio Sidebar Épico) */}

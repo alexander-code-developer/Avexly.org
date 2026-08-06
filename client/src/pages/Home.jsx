@@ -40,7 +40,7 @@ const Home = () => {
   }, [text, isDeleting, loopNum, typingSpeed, phrases]);
 
   return (
-    <div className="lg:pt-0 pt-10 bg-[#020617] selection:bg-blue-500/30 overflow-x-hidden">
+    <div className="lg:pt-0 pt-0 bg-[#020617] selection:bg-blue-500/30 overflow-x-hidden">
       <section className="relative min-h-screen flex items-center justify-center py-20 px-4">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] md:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-blue-600/10 blur-[80px] md:blur-[120px] rounded-full" />
@@ -73,12 +73,6 @@ const Home = () => {
           </h1>
           
           <div className="min-h-[60px] flex flex-col items-center justify-center gap-3 mb-10">
-            <div className="flex items-center gap-2 px-3 py-1 border border-blue-500/20 bg-blue-500/5 rounded-full">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-blue-400 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase">
-                {avexlyData.brand.name}.Active
-              </span>
-            </div>
             <h2 className="text-xl sm:text-2xl md:text-4xl text-slate-200 font-bold tracking-tight h-10">
               {text}<span className="w-[2px] md:w-[3px] h-6 md:h-9 bg-blue-500 inline-block align-middle ml-2 animate-pulse"></span>
             </h2>

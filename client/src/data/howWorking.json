@@ -1,0 +1,71 @@
+{
+  "header": {
+    "subtitle": "Clear & Guaranteed Process",
+    "title_main": "How We",
+    "title_highlight": "Work"
+  },
+  "intro": {
+    "description": "We transform your vision into high-impact software through a transparent methodology, structured phases, and contracts with guaranteed support."
+  },
+  "workflow": [
+    {
+      "step": "01",
+      "title": "Discovery & Brief",
+      "description": "We analyze your idea, define technical requirements, and establish the real scope of the project.",
+      "badge": "PHASE 01 • BRIEFING",
+      "previewTitle": "Discovery & Analysis Session",
+      "previewTagline": "We listen to your ideas and define the project architecture.",
+      "image": "https://img.freepik.com/fotos-premium/lluvia-ideas-tecnologicas-concepto-innovacion_700248-15452.jpg"
+    },
+    {
+      "step": "02",
+      "title": "Proposal & Contract",
+      "description": "We formalize the proposal with fixed costs, delivery timelines, and written guarantees with no surprises.",
+      "badge": "PHASE 02 • LEGAL AGREEMENT",
+      "previewTitle": "Clear & Transparent Contract",
+      "previewTagline": "Security for both parties with milestones and guaranteed deliveries.",
+      "image": "https://tse3.mm.bing.net/th/id/OIP.B71aandgKXIBqz7fRJLSUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+    },
+    {
+      "step": "03",
+      "title": "Architecture & UI/UX",
+      "description": "We create interactive prototypes and database structure before writing any code.",
+      "badge": "PHASE 03 • PROTOTYPING",
+      "previewTitle": "Design & UI/UX Architecture",
+      "previewTagline": "Interactive modeling and functional prototype before coding.",
+      "image": "/images/workflow/design.svg"
+    },
+    {
+      "step": "04",
+      "title": "Development & Testing",
+      "description": "We program with modern standards, automated security tests, and weekly progress updates.",
+      "badge": "PHASE 04 • DEVELOPMENT",
+      "previewTitle": "Construction & Continuous Testing",
+      "previewTagline": "We write clean, fast, secure, and scalable code.",
+      "image": "/images/workflow/development.svg"
+    },
+    {
+      "step": "05",
+      "title": "Launch & Support",
+      "description": "We deploy on high-performance cloud servers and initiate the accompaniment guarantee.",
+      "badge": "PHASE 05 • DEPLOYMENT",
+      "previewTitle": "Launch & Post-Delivery Coverage",
+      "previewTagline": "Automated production deployment with 24/7 monitoring.",
+      "image": "/images/workflow/launch.svg"
+    }
+  ],
+  "requirements": {
+    "title": "Service Guarantees & Professional Commitment",
+    "items": [
+      "Formal legal contract with confidentiality clauses.",
+      "Post-delivery support guaranteed for 15 to 30 days.",
+      "Deliveries on test server for review prior to final payment.",
+      "Transparent communication throughout the entire process."
+    ]
+  },
+  "cta": {
+    "title": "Ready to Start Your Project?",
+    "subtitle": "Let's talk today and schedule a free discovery call.",
+    "button": "Start Now"
+  }
+}

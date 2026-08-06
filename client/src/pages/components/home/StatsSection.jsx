@@ -97,22 +97,6 @@ const StatsSection = () => {
             );
           })}
         </div>
-        
-        {/* Footer de Sección */}
-        <div className="mt-10 flex flex-col sm:flex-row justify-between items-center gap-4 px-6">
-            <div className="flex gap-3">
-                {[0, 1, 2].map((i) => (
-                    <div key={i} className={`w-12 h-1 rounded-full transition-all duration-500 ${activeIdx === i ? 'bg-blue-500 w-16' : 'bg-slate-800'}`}></div>
-                ))}
-            </div>
-            <div className="flex items-center gap-4">
-                <div className="h-[1px] w-8 bg-slate-800 hidden sm:block"></div>
-                <p className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.4em] flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Terminal_Live: <span className="text-white">{data.brand.version}</span>
-                </p>
-            </div>
-        </div>
       </div>
     </section>
   );

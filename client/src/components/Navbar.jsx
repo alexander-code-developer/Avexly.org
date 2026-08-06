@@ -108,17 +108,6 @@ const Navbar = () => {
                   </Link>
                 );
               })}
-              
-              {/* Status Badge */}
-              <div className="ml-4 flex items-center gap-2 bg-gradient-to-r from-white/5 to-white/10 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-green-500/50 blur-sm rounded-full animate-pulse" />
-                  <Sparkles className="w-3 h-3 text-green-400 relative" />
-                </div>
-                <span className="text-[10px] font-mono text-gray-300 font-medium">ACTIVE</span>
-                <div className="w-px h-3 bg-white/20" />
-                <span className="text-[10px] font-mono text-blue-400 font-bold">{data.brand.version}</span>
-              </div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -193,20 +182,6 @@ const Navbar = () => {
                       );
                     })}
                   </div>
-                  
-                  {/* Mobile Status Badge */}
-                  <div className="border-t border-white/10 p-4 bg-white/5">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="relative">
-                          <div className="absolute inset-0 bg-green-500/50 blur-sm rounded-full animate-pulse" />
-                          <Sparkles className="w-3 h-3 text-green-400 relative" />
-                        </div>
-                        <span className="text-xs font-mono text-gray-300">System Online</span>
-                      </div>
-                      <span className="text-xs font-mono text-blue-400 font-bold">v2.0</span>
-                    </div>
-                  </div>
                 </div>
               </motion.div>
             )}
@@ -235,6 +210,7 @@ const navLinks = [
   { path: '/', label: 'Home' },
   { path: '/projects', label: 'Projects' },
   { path: '/about', label: 'About', },
+  { path: '/howWorking', label: 'How Working'},
   { path: '/contact', label: 'Contact', },
   { path: '/library', label: 'Library', },
   /*{ path: '/Certifications', label: 'Certifications'}*/

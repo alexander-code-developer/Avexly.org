@@ -1,26 +1,26 @@
 {
   "stats": [
     {
-      "id": "deployment",
-      "value": "20+",
-      "label": "Sistemas Desplegados",
-      "detail": "Full Stack & AI",
+      "id": "projects",
+      "value": "15+",
+      "label": "Projects Delivered",
+      "detail": "Full Stack & AI Solutions",
       "icon": "LuRocket",
       "colorID": "blue"
     },
     {
-      "id": "partners",
-      "value": "15+",
-      "label": "Socios Estratégicos",
-      "detail": "Confianza Total",
+      "id": "clients",
+      "value": "10+",
+      "label": "Happy Clients",
+      "detail": "Trust & Satisfaction",
       "icon": "LuAward",
       "colorID": "emerald"
     },
     {
       "id": "uptime",
       "value": "24/7",
-      "label": "Uptime Operativo",
-      "detail": "Soporte Continuo",
+      "label": "Operational Uptime",
+      "detail": "Continuous Support",
       "icon": "LuSparkles",
       "colorID": "purple"
     }
