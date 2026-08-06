@@ -1,0 +1,45 @@
+# --- AVEXLY UNIFIED GITIGNORE (Updated 2026) ---
+
+# Dependencias (Cubre raíz y todas las subcarpetas)
+node_modules/
+.pnpm-debug.log*
+
+# Archivos específicos de pnpm (VITAL)
+# Este archivo guarda el estado del workspace y no debe subirse
+.pnpm-workspace-state-v1.json
+
+# Seguridad y Secretos
+.env
+.env.local
+.env.*.local
+# Aunque la regla de arriba suele bastar, dejar estas no estorba:
+backend/.env
+client/.env
+
+# Producción / Builds
+dist/
+client/dist/
+client/dist-ssr/
+backend/dist/
+# Si usas Next.js o carpetas de build ocultas:
+.next/
+.vite-inspect/
+
+# Logs de errores
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de Sistema y Editores
+.DS_Store
+Thumbs.db
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.sw?
+
+# Temporales y Caché
+.temp/
+.cache/
+.eslintcache

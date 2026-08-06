@@ -1,0 +1,135 @@
+{
+  "projects": [
+    {
+  "id": 1,
+  "title": "Avexly.org",
+  "description": "Central repository for my personal website and the future foundation for my own UI component library. It features dedicated sections for Home, About Me, Projects, and a functional contact system powered by Brevo.",
+  "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+  "tech": ["React", "Tailwind CSS", "Cloudinary", "Framer Motion", "Brevo SMTP", "Vite"],
+  "category": "Full Stack",
+  "github": "https://github.com/alexander-code-developer/Avexly.org",
+  "demo": "https://avexly.org",
+  "video": "https://res.cloudinary.com/ddjn9k1ox/video/upload/v1777784360/2026-05-02_22-56-18_syhd6q.mp4",
+  "features": [
+    "Modular architecture: Home, About Me, Contact, and Projects",
+    "Solid foundation for a future reusable UI component library",
+    "Real-world contact form integrated with Brevo SMTP API",
+    "Dynamic content management via structured JSON files",
+    "Custom project filtering system by technology and category"
+  ],
+  "codeSnippets": [
+    {
+      "title": "Brevo SMTP Integration",
+      "code": "// Handling secure email delivery from the contact form\nconst sendContactEmail = async (data) => {\n  return await fetch('https://api.brevo.com/v3/smtp/email', {\n    method: 'POST',\n    headers: { 'api-key': 'YOUR_API_KEY' },\n    body: JSON.stringify({ ...data })\n  });\n};",
+      "language": "javascript"
+    },
+    {
+      "title": "Grid Media State Control",
+      "code": "// Preventing duplicate audio/video playback when opening modals\nconst handleOpenModal = (project) => {\n  setActiveCardId(null); // Stop the preview card video\n  setSelectedProject(project); // Open modal with main video content\n};",
+      "language": "jsx"
+    }
+  ],
+  "challenge": "The primary challenge was structuring the codebase so that each UI element (GlassCard, TechBadge) is clean enough to be extracted into a standalone library later on.",
+  "solution": "Implemented a component-driven architecture and utilized React states to manage media playback, effectively resolving audio conflicts between the project grid and the detail views."
+},
+    {
+  "id": 2,
+  "title": "PetCare: All-in-One Pet Ecosystem",
+  "description": "A comprehensive digital platform for veterinary services and animal welfare. It centralizes grooming, training, adoption, and emergency services within a high-performance, modern interface.",
+  "image": "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=800&auto=format&fit=crop",
+  "tech": ["React", "Tailwind CSS", "Cloudinary", "Framer Motion"],
+  "category": "Frontend",
+  "github": "https://github.com/avexly/petcare",
+  "demo": "https://petcare.avexly.org",
+  "video": "https://res.cloudinary.com/ddjn9k1ox/video/upload/v1777682861/2026-05-01_18-16-01_wwndbg.mp4",
+  "features": [
+    "Booking management system for grooming and specialized training",
+    "Adoption module with dynamic filters by species, size, and age",
+    "Integrated E-commerce store with a premium product catalog",
+    "Active community hub with consultation forums and veterinary tips",
+    "24/7 Emergency response section with integrated clinic locations"
+  ],
+  "codeSnippets": [
+    {
+      "title": "Performance Optimization via Lazy Loading",
+      "code": "const ServiceModule = React.lazy(() => import('./modules/Services'));\n\nconst App = () => (\n  <Suspense fallback={<LoadingSpinner />}>\n    <section>\n      <ServiceModule />\n    </section>\n  </Suspense>\n);",
+      "language": "javascript"
+    },
+    {
+      "title": "Lightweight Animations with Framer Motion",
+      "code": "const GlassCard = ({ children }) => (\n  <motion.div\n    initial={{ opacity: 0, y: 20 }}\n    whileInView={{ opacity: 1, y: 0 }}\n    viewport={{ once: true }}\n    transition={{ duration: 0.5 }}\n    className=\"backdrop-blur-md bg-white/10\"\n  >\n    {children}\n  </motion.div>\n);",
+      "language": "jsx"
+    }
+  ],
+  "challenge": "The main challenge was building a visually rich platform with fluid animations under a zero-budget infrastructure constraint, while ensuring fast load times (Low LCP) despite the use of videos and heavy media assets.",
+  "solution": "Implemented a 'Serverless-first' architecture leveraging Cloudinary for asset delivery and Railway for deployment. I integrated Intersection Observer for lazy loading images and videos, successfully reducing the initial page weight by 65% without sacrificing the aesthetic quality of the animations."
+},
+    {
+  "id": 3,
+  "title": "Academic Survey System - ITSOEH",
+  "description": "A secure, role-based survey platform developed for the ITSOEH Technological University. It streamlines teacher evaluations and campus service assessments (cafeteria, infrastructure) with automated reporting.",
+  "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop",
+  "tech": ["Express", "Node.js", "MongoDB", "React", "Tailwind CSS", "Brevo"],
+  "category": "Full Stack",
+  "github": "https://github.com/avexly/academic-survey",
+  "demo": "https://encuestas.avexly.org/",
+  "video": "https://res.cloudinary.com/ddjn9k1ox/video/upload/v1777684116/2026-05-01_19-06-44_t2smad.mp4",
+  "features": [
+    "Three-tier role management (Admin, Teacher, Student)",
+    "Automated credential delivery via Brevo SMTP integration",
+    "Admin-only user provisioning and secure access control",
+    "Evaluation modules for teaching performance and campus services",
+    "Clean, institutional UI designed for accessibility and high usability"
+  ],
+  "codeSnippets": [
+    {
+      "title": "Automated Email Credential Delivery",
+      "code": "const sendCredentials = async (email, password) => {\n  const apiInstance = new Brevo.TransactionalEmailsApi();\n  await apiInstance.sendTransacEmail({\n    sender: { email: 'admin@itsoeh.edu.mx' },\n    to: [{ email }],\n    subject: 'ITSOEH Portal Credentials',\n    textContent: `User: ${email} \\n Pass: ${password}`\n  });\n};",
+      "language": "javascript"
+    },
+    {
+      "title": "Role-Based Access Middleware",
+      "code": "const authorize = (roles = []) => {\n  return (req, res, next) => {\n    if (!roles.includes(req.user.role)) {\n      return res.status(403).json({ message: 'Unauthorized Access' });\n    }\n    next();\n  };\n};",
+      "language": "javascript"
+    }
+  ],
+  "challenge": "Implementing a secure credential distribution system while managing concurrent database writes during peak evaluation periods (finals week).",
+  "solution": "Integrated Brevo for reliable SMTP delivery and optimized MongoDB aggregation pipelines to handle real-time statistical generation for administrative reports without performance lag."
+
+
+   },
+   {
+  "id": 4,
+  "title": "Collaborative Project Evaluation & Academic Management System",
+  "description": "A comprehensive, multi-role academic platform designed to manage, review, and evaluate institutional projects. It features real-time collaborative rubric creation, automated email workflows, individual and external jury grading, and a built-in communication system.",
+  "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop",
+  "tech": ["Express", "Node.js", "MongoDB", "React", "Tailwind CSS", "Nodemailer", "Socket.io"],
+  "category": "Full Stack",
+  "github": "https://github.com/avexly/academic-evaluation-system",
+  "demo": "https://evaluador.avexly.org/login",
+  "video": "https://res.cloudinary.com/ddjn9k1ox/video/upload/v1777684116/evaluation-system-demo.mp4",
+  "features": [
+    "Hierarchical role management spanning Administrator, Coordinator, Teacher, and External Evaluator.",
+    "Dynamic academic mapping to link teachers, subjects, and student projects for multi-perspective evaluation.",
+    "Approval workflow with automated email dispatch for project validation, acceptance, and rejection notifications.",
+    "Collaborative rubric builder allowing teachers within the same department, grade, and semester to co-author shared evaluation criteria.",
+    "Secure passcode-based verification system for students to access real-time grades and feedback.",
+    "Integrated real-time chat module for seamless communication between coordinators, evaluators, and academic staff."
+  ],
+  "codeSnippets": [
+    {
+      "title": "Collaborative Rubric Sync",
+      "code": "const createSharedRubric = async (req, res) => {\n  const { department, grade, semester, criteria } = req.body;\n  const rubric = await Rubric.findOneAndUpdate(\n    { department, grade, semester },\n    { $set: { criteria, coAuthors: req.user.id } },\n    { upsert: true, new: true }\n  );\n  res.status(200).json(rubric);\n};",
+      "language": "javascript"
+    },
+    {
+      "title": "Project Validation & Email Dispatch",
+      "code": "const updateProjectStatus = async (projectId, status) => {\n  const project = await Project.findByIdAndUpdate(projectId, { status }, { new: true }).populate('team.leaderEmail');\n  await emailService.sendMail({\n    to: project.team.leaderEmail,\n    subject: `Project Status Updated: ${status}`,\n    text: `Your project review is complete. Status: ${status}. Check the portal for details.`\n  });\n};",
+      "language": "javascript"
+    }
+  ],
+  "challenge": "Orchestrating real-time collaborative state changes when multiple teachers simultaneously edit a shared rubric, alongside managing complex database relations between users, subjects, and juries.",
+  "solution": "Implemented WebSockets (Socket.io) to broadcast rubric modifications instantly across co-authors, and structured an optimized MongoDB schema with deeply populated references to ensure efficient relational lookups without data mutation lag."
+}
+  ]
+}

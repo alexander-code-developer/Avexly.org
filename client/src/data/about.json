@@ -1,0 +1,31 @@
+{
+  "about": {
+    "header": {
+      "subtitle": "Profile",
+      "title_main": "Software",
+      "title_highlight": "Engineering"
+    },
+    "bio": {
+      "title": "About Me",
+      "description_1": "I am a developer focused on the <strong class='text-blue-400 font-semibold'>MERN Stack</strong>, passionate about creating software architecture that is as clean as it is functional.",
+      "description_2": "My approach goes beyond just 'writing code'; it's about solving complex problems through scalable solutions, always prioritizing 'user experience and performance'.",
+      "stats": [
+        { "value": "50+", "label": "Projects" },
+        { "value": "1K+", "label": "Coffees" },
+        { "value": "12+", "label": "Courses" },
+        { "value": "8+", "label": "Certificates" }
+      ]
+    },
+    "skills": {
+      "title": "Technologies",
+      "methodologies_label": "Methodologies",
+      "methodologies": ["CI/CD & Automation", "Clean Code / SOLID", "Agile Mindset"]
+    },
+    "cta": {
+      "title": "Have a project in mind?",
+      "subtitle": "I'm ready to help you scale your next big idea.",
+      "button": "LET'S TALK",
+      "community": "Committed to open source and the tech community."
+    }
+  }
+}

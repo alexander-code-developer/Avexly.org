@@ -1,0 +1,57 @@
+{
+  "colors": [
+    {
+      "name": "Primary Core",
+      "hex": "#3b82f6",
+      "use": "Main Action, Links",
+      "description": "The primary brand color used for high-emphasis actions."
+    },
+    {
+      "name": "Emerald Success",
+      "hex": "#10b981",
+      "use": "Confirmation, Success",
+      "description": "Used for positive feedback and completion states."
+    },
+    {
+      "name": "Deep Background",
+      "hex": "#020617",
+      "use": "Base Layout",
+      "description": "The foundation layer of the entire dark interface."
+    },
+    {
+      "name": "Surface Glass",
+      "hex": "#0f172a",
+      "use": "Cards, Modals",
+      "description": "Floating elements and container backgrounds."
+    },
+    {
+      "name": "Cyber Purple",
+      "hex": "#8b5cf6",
+      "use": "Features, Badges",
+      "description": "Highlighting premium or special features."
+    },
+    {
+      "name": "Alert Amber",
+      "hex": "#f59e0b",
+      "use": "Warnings, Errors",
+      "description": "Critical information requiring user attention."
+    }
+  ],
+  "glows": [
+    {
+      "id": "GLOW_SM",
+      "value": "0 0 20px rgba(59,130,246,0.15)",
+      "twClass": "shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+    },
+    {
+      "id": "GLOW_MD",
+      "value": "0 0 40px rgba(59,130,246,0.35)",
+      "twClass": "shadow-[0_0_40px_rgba(59,130,246,0.35)]"
+    },
+    {
+      "id": "GLOW_LG",
+      "value": "0 0 60px rgba(59,130,246,0.55)",
+      "twClass": "shadow-[0_0_60px_rgba(59,130,246,0.55)]"
+    }
+  ]
+}
